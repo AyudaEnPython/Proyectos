@@ -1,0 +1,27 @@
+[
+    {
+        "title": "The Extrimist",
+        "artist": "Joe Satriani",
+        "duration": 3.43
+    },
+    {
+        "title": "Far Beyond the Sun",
+        "artist": "Yngwie Malmsteen",
+        "duration": 5.25
+    },
+    {
+        "title": "Tender Surrender",
+        "artist": "Steve Vai",
+        "duration": 5.01
+    },
+    {
+        "title": "Scarified",
+        "artist": "Paul Gilbert",
+        "duration": 2.40
+    },
+    {
+        "title": "Cry For You",
+        "artist": "Andy Timmons",
+        "duration": 6.56
+    }
+]
