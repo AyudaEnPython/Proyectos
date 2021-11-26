@@ -2,7 +2,7 @@ from prototools import ProtoDB, Menu
 from prototools.menu import Item
 
 
-data = ProtoDB("CLI/Jukebox/songs")
+data = ProtoDB("songs")
 ALBUM = data.get_data()
 
 
