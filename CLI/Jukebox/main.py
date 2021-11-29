@@ -1,6 +1,7 @@
 from time import sleep
-from prototools import ProtoDB, Menu, FunctionItem, textbox, progressbar
+from prototools import Menu, ProtoDB, textbox, progressbar
 from prototools.colorize import *
+
 
 data = ProtoDB("songs")
 ALBUM = data.get_data()
@@ -10,30 +11,43 @@ def play(song):
     print()
     textbox(
         yellow(f"{song['title']} - {song['artist']}"),
-        align="center",
-        light=False,
-        bcolor="magenta",
-        width=58,
-        ml=2,
+        light=False, bcolor="magenta", width=56, ml=1,
     )
     for _ in progressbar(
         range(int(song['duration'])*10),
-        width=52,
-        units=False,
+        width=51, units=False, per=False,
+        spinvar_color=red, fg=green, bg=cyan,
     ):
         sleep(0.1)
 
 
 def main():
-    menu = Menu(yellow("Jukebox"))
-    menu.set_dimension(width=60, height=20)
-    menu.builder._header.show_bottom = True
+    menu = Menu(
+        green("Jukebox"),
+        yellow("Simple CLI Jukebox"),
+        yellow("Playlist"),
+        yellow("Selecciona una opción"),
+        exit_option_text=magenta("Finalizar"),
+        exit_option_color=magenta,
+        arrow_keys=True,
+    )
     for song in ALBUM:
-        menu.add_item(FunctionItem(
-            f"({song['duration']:.2f}) {song['title']} {song['artist']}",
-            play,
-            args=[song]
-        ))
+        menu.add_option(
+            "{} {}".format(
+                green(f"({song['duration']:.2f})"),
+                cyan(f"{song['title']} {song['artist']}")),
+            play, [song],
+        )
+    menu.settings(
+        dimension=(60, 20),
+        style="double",
+        color=magenta,
+        options_color=yellow,
+        separators=True,
+        paddings=(1, 1, 0, 0),
+        items_paddings=(1, 1, 1, 1),
+        subtitle_align="center",
+    )
     menu.run()
 
 
