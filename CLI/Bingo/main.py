@@ -2,7 +2,7 @@
 """
 # pip install prototools
 from prototools import Menu
-from prototools.colorize import *
+from prototools.colorize import magenta, cyan, yellow
 from bingo.bingo import Game
 from bingo.utils import agregar_usuario, datenow
 from bingo import PRECIO
@@ -31,9 +31,9 @@ class App:
         self.game.start()
     
     def configurar(self):
-        self.lugar = "Municipalidad"
+        self.lugar = "Comunidad Ayuda En Python"
         self._fecha = "24 de diciembre del 2021"
-        self._hora = "15:00"
+        self._hora = "19:00"
         self.info = (
             f"{f'{self._fecha}':^26}"
             f" {f'{self._hora}':^26} {f'S/.{PRECIO}':^26}"
