@@ -3,7 +3,7 @@
 from prototools import RangeDict
 from typing import List, Dict, Tuple, Optional
 
-PRECIO: int = 8
+PRECIO: int = 5
 METODOS: Tuple[str] = ("VISA", "Transferencia BCP", "Yape")
 RANGOS = ((1, 15), (16, 30), (31, 45), (46, 60), (61, 75))
 INDEX = RangeDict({
