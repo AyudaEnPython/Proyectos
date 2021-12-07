@@ -18,12 +18,12 @@ class Carton:
     def __init__(self) -> None:
         self.posiciones = {}
         self.bingo = {"row": [0]*5, "col": [0]*5, "diagonal": [0]*2}
-        self.create()
+        self._create()
     
     def n_serial(self):
         return f"Número de serie: {self.serial:03d}"
 
-    def create(self) -> None:
+    def _create(self) -> None:
         self.__class__._id += 1
         self.serial = self._id
         carton = [[0]*5 for _ in range(5)]
@@ -92,8 +92,8 @@ class Game:
     
     def __post_init__(self) -> None:
         self.stop = False
-        self.generar_numeros()
-        self.tablero()
+        self._generar_numeros()
+        self._tablero()
 
     def add_user(self, args) -> None:
         usuario = Usuario(*args)
@@ -101,21 +101,21 @@ class Game:
             usuario.add(Carton())
         self.usuarios.append(usuario)
 
-    def generar_numeros(self) -> None:
+    def _generar_numeros(self) -> None:
         self.numeros = list(range(1, 76))
         shuffle(self.numeros)
 
-    def tablero(self) -> None:
+    def _tablero(self) -> None:
         self.numeros_jugados = [["--"]*16 for _ in range(5)]
         for i, letter in zip(range(5), "BINGO"):
             self.numeros_jugados[i][0] = letter
 
-    def sacar_numero(self) -> int:
+    def _sacar_numero(self) -> int:
         return self.numeros.pop()
 
     def play(self) -> None:
         clear()
-        numero: int = self.sacar_numero()
+        numero: int = self._sacar_numero()
         index, t = INDEX[numero]
         self.numeros_jugados[index][numero + t] = f"{numero:02d}"
         self.show()
@@ -136,8 +136,8 @@ class Game:
 
     def reset(self) -> None:
         self.stop = False
-        self.generar_numeros()
-        self.tablero()
+        self._generar_numeros()
+        self._tablero()
         for usuario in self.usuarios:
             usuario.reset()
 
