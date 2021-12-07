@@ -75,5 +75,13 @@ def agregar_usuario() -> Tuple[str, str, str, int, str]:
     return nombre, dni, email, n, pago
 
 
+def modificar_informacion():
+    lugar = input("Información: ")
+    fecha = input("Fecha: ")
+    hora = input("Hora: ")
+    costo = input("Costo S/.: ")
+    return lugar, fecha, hora, costo
+
+
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
