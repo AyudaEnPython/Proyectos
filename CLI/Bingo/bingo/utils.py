@@ -4,9 +4,7 @@ from datetime import datetime
 from typing import Tuple
 # pip install prototools
 from prototools import int_input, menu_input, EMAIL_REGEX
-from . import PRECIO
-
-METODOS: Tuple[str] = ("VISA", "Transferencia BCP", "Yape")
+from . import PRECIO, METODOS
 
 
 class DniException(Exception):
