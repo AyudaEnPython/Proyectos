@@ -2,9 +2,9 @@
 """
 from dataclasses import dataclass, field
 from typing import List, Type
-from utils import datenow
+# pip install prototools
 from prototools.colorize import red
-
+from .utils import datenow
 
 @dataclass
 class Usuario:
