@@ -19,7 +19,7 @@ class Carton:
         self.posiciones = {}
         self.bingo = {"row": [0]*5, "col": [0]*5, "diagonal": [0]*2}
         self._create()
-    
+
     def n_serial(self):
         return f"Número de serie: {self.serial:03d}"
 
@@ -44,7 +44,7 @@ class Carton:
             else:
                 self.carton[i][j].marcar()
                 self._update(i, j)
-    
+
     def _update(self, i: int, j: int) -> None:
         self.bingo["row"][i] += 1
         self.bingo["col"][j] += 1
@@ -126,7 +126,7 @@ class Game:
                 print(f"{usuario.nombre} gana!")
                 self.winner = usuario
                 self.stop = True
-        
+
     def start(self) -> None:
         while not self.stop:
             self.play()
