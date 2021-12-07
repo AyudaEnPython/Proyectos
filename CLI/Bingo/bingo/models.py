@@ -6,6 +6,7 @@ from typing import List, Type
 from prototools.colorize import red
 from .utils import datenow
 
+
 @dataclass
 class Usuario:
     nombre: str
