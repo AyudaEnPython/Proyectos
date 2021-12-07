@@ -3,13 +3,20 @@
 from datetime import datetime
 from typing import Tuple
 # pip install prototools
-from prototools.inputs import int_input, menu_input
+from prototools import int_input, menu_input, EMAIL_REGEX
+from . import PRECIO
 
-METODOS = ("VISA", "Transferencia BCP", "Yape")
+METODOS: Tuple[str] = ("VISA", "Transferencia BCP", "Yape")
 
 
 class DniException(Exception):
     """Excepción para DNI"""
+    ...
+
+
+class EmailException(Exception):
+    """Excepción para Email"""
+    ...
 
 
 def datenow(s: str) -> str:
@@ -18,7 +25,7 @@ def datenow(s: str) -> str:
 
 # Adaptado de:
 # https://github.com/AyudaEnPython/Soluciones/blob/main/soluciones/persona_dni.py
-def validar_dni(s: str) -> bool:
+def validar_dni(s: str) -> str:
     """Valida un DNI
 
     :param s: Mensaje de indicación
@@ -39,11 +46,30 @@ def validar_dni(s: str) -> bool:
             continue
 
 
+def validar_email(s: str) -> str:
+    """Valida un email
+
+    :param s: Mensaje de indicación
+    :type s: str
+    :return: Email validado
+    :rtype: str
+    """
+    while True:
+        try:
+            email = input(s)
+            if not EMAIL_REGEX.match(email):
+                raise EmailException("El email no es válido")
+            return email
+        except EmailException as e:
+            print(e)
+            continue
+
+
 def agregar_usuario() -> Tuple[str, str, str, str]:
     nombre = input("Ingrese su nombre y apellido: ")
     dni = validar_dni("Ingrese su DNI: ")
-    email = input("Ingrese su email: ")
+    email = validar_email("Ingrese su email: ")
     n = int_input("Ingrese el número de cartones que desea comprar: ")
-    print(f"Costo Total: S/.{n*5}")
+    print(f"Costo Total: S/.{n*PRECIO}")
     pago = menu_input(METODOS, numbers=True)
     return nombre, dni, email, n, pago
