@@ -3,7 +3,10 @@
 from prototools import RangeDict
 from typing import Tuple
 
-PRECIO: int = 5
+LUGAR: str = "Comunidad Ayuda En Python"
+FECHA: str = "24 de diciembre del 2021"
+HORA: str = "19:00"
+COSTO: int = 5
 METODOS: Tuple[str] = ("VISA", "Transferencia BCP", "Yape")
 RANGOS: Tuple[Tuple[int, int]] = (
     (1, 15), (16, 30), (31, 45), (46, 60), (61, 75)
