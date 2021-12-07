@@ -3,6 +3,7 @@
 # pip install prototools
 from prototools import Menu
 from prototools.colorize import magenta, cyan, yellow
+
 from bingo.bingo import Game
 from bingo.utils import agregar_usuario, datenow
 from bingo import PRECIO
@@ -16,19 +17,12 @@ class App:
 
     def comprar(self):
         self.game.add_user(agregar_usuario())
-        self.fecha_hora()
+        self._fecha_hora()
         print("Compra realizada correctamente")
 
     def visualizar(self):
         print(f"Usuarios: {len(self.game.usuarios)}")
         print(f"{self.game.usuarios}")
-
-    def fecha_hora(self):
-        self._fecha = datenow("%d/%m/%Y")
-        self._hora = datenow("%H:%M")
-
-    def run(self):
-        self.game.start()
     
     def configurar(self):
         self.lugar = "Comunidad Ayuda En Python"
@@ -38,6 +32,13 @@ class App:
             f"{f'{self._fecha}':^26}"
             f" {f'{self._hora}':^26} {f'S/.{PRECIO}':^26}"
         )
+
+    def _fecha_hora(self):
+        self._fecha = datenow("%d/%m/%Y")
+        self._hora = datenow("%H:%M")
+
+    def run(self):
+        self.game.start()
 
 
 def main():
