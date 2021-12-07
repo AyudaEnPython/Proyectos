@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from datetime import datetime
 from typing import List, Type
 from prototools.colorize import *
 
@@ -10,6 +11,8 @@ class Usuario:
     email: str
     n: int
     pago: str
+    fecha: str = field(default_factory=lambda: datetime.now().strftime("%d/%m/%Y"))
+    hora: str = field(default_factory=lambda: datetime.now().strftime("%H:%M"))
     cartones: List[Type[object]] = field(default_factory=list)
 
     def add(self, carton: object) -> None:
