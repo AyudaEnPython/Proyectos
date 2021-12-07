@@ -63,7 +63,7 @@ def validar_email(s: str) -> str:
             continue
 
 
-def agregar_usuario() -> Tuple[str, str, str, str]:
+def agregar_usuario() -> Tuple[str, str, str, int, str]:
     nombre = input("Ingrese su nombre y apellido: ")
     dni = validar_dni("Ingrese su DNI: ")
     email = validar_email("Ingrese su email: ")
