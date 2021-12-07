@@ -1,9 +1,11 @@
 """AyudaEnPython: https://www.facebook.com/groups/ayudapython
 """
+import os
 from datetime import datetime
 from typing import Tuple
 # pip install prototools
 from prototools import int_input, menu_input, EMAIL_REGEX
+
 from . import PRECIO, METODOS
 
 
@@ -71,3 +73,7 @@ def agregar_usuario() -> Tuple[str, str, str, int, str]:
     print(f"Costo Total: S/.{n*PRECIO}")
     pago = menu_input(METODOS, numbers=True)
     return nombre, dni, email, n, pago
+
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
