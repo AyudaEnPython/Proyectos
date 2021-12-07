@@ -1,4 +1,7 @@
+"""AyudaEnPython: https://www.facebook.com/groups/ayudapython
+"""
 from time import sleep
+# pip install prototools
 from prototools import Menu, ProtoDB, textbox, progressbar
 from prototools.colorize import *
 
