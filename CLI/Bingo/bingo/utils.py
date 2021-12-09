@@ -5,7 +5,7 @@ from datetime import datetime
 from typing import Tuple
 # pip install prototools
 from prototools import int_input, menu_input, EMAIL_REGEX
-
+from prototools.colorize import cyan, red
 
 class DniException(Exception):
     """Excepción para DNI"""
@@ -15,10 +15,6 @@ class DniException(Exception):
 class EmailException(Exception):
     """Excepción para Email"""
     ...
-
-
-def datenow(s: str) -> str:
-    return datetime.now().strftime(s)
 
 
 # Adaptado de:
@@ -35,9 +31,9 @@ def validar_dni(s: str) -> str:
         try:
             dni = input(s)
             if len(dni) != 8:
-                raise DniException("El DNI debe tener 8 caracteres")
+                raise DniException(red("El DNI debe tener 8 caracteres"))
             if not dni.isdigit():
-                raise DniException("El DNI debe contener solo números")
+                raise DniException(red("El DNI debe contener solo números"))
             return dni
         except DniException as e:
             print(e)
@@ -56,32 +52,36 @@ def validar_email(s: str) -> str:
         try:
             email = input(s)
             if not EMAIL_REGEX.match(email):
-                raise EmailException("El email no es válido")
+                raise EmailException(red("El email no es válido"))
             return email
         except EmailException as e:
             print(e)
             continue
 
 
+def datenow(s: str) -> str:
+    return datetime.now().strftime(s)
+
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def agregar_usuario(
     metodos: Tuple[str, str, str] , costo: str,
 ) -> Tuple[str, str, str, int, str]:
-    nombre = input("Ingrese su nombre y apellido: ")
-    dni = validar_dni("Ingrese su DNI: ")
-    email = validar_email("Ingrese su email: ")
-    n = int_input("Ingrese el número de cartones que desea comprar: ")
-    print(f"Costo Total: S/.{n*costo}")
+    nombre = input(cyan("Ingrese su nombre y apellido: "))
+    dni = validar_dni(cyan("Ingrese su DNI: "))
+    email = validar_email(cyan("Ingrese su email: "))
+    n = int_input(cyan("Ingrese el número de cartones que desea comprar: "))
+    print(cyan("Costo Total:"), f"S/.{n*costo}")
     pago = menu_input(metodos, numbers=True)
     return nombre, dni, email, n, pago
 
 
 def modificar_informacion():
-    lugar = input("Información: ")
-    fecha = input("Fecha: ")
-    hora = input("Hora: ")
-    costo = input("Costo S/.: ")
+    lugar = input(cyan("Información: "))
+    fecha = input(cyan("Fecha: "))
+    hora = input(cyan("Hora: "))
+    costo = input(cyan("Costo S/.: "))
     return lugar, fecha, hora, costo
-
-
-def clear():
-    os.system('cls' if os.name == 'nt' else 'clear')
