@@ -31,7 +31,10 @@ class App:
 
     @property
     def info(self) -> str:
-        return f"{self._fecha} {self._hora} S/.{self._costo}"
+        return (
+            f"{f'{self._fecha}':^36}"
+            f" {f'{self._hora}':^12} {f'S/.{self._costo}':^12}"
+        )
 
     @info.setter
     def info(self, info: str) -> None:
@@ -48,8 +51,8 @@ class App:
 
     def informacion(self, obj) -> None:
         self._configurar(*modificar_informacion())
-        obj.subtitle = self.lugar
-        obj.prologue_text = self.info
+        obj.subtitle = yellow(self.lugar)
+        obj.prologue_text = cyan(self.info)
 
     def _configurar(
         self, lugar: str, fecha: str, hora: str, costo: str
@@ -59,8 +62,8 @@ class App:
         self._hora = hora
         self._costo = costo
         self.info = (
-            f"{f'{self.lugar}':^26}"
-            f" {f'{self._hora}':^26} {f'S/.{self._costo}':^26}"
+            f"{f'{self._fecha}':^36}"
+            f" {f'{self._hora}':^12} {f'S/.{self._costo}':^12}"
         )
 
     def _fecha_hora(self) -> None:
@@ -76,8 +79,8 @@ def main():
     app.game.add_user(("Bot", "11001100", "bot@py.com", 1, "VISA"))
     menu = Menu(
         cyan("BINGO"),
-        app.lugar,
-        app.info,
+        yellow(app.lugar),
+        cyan(app.info),
         exit_option_text=magenta("Salir"),
         exit_option_color=magenta,
     )
