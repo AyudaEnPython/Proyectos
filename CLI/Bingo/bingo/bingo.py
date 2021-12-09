@@ -4,8 +4,8 @@ from dataclasses import dataclass, field
 from typing import List
 from random import sample, shuffle
 # pip install prototools
-from prototools import tabulate
-from prototools.colorize import cyan, red, yellow
+from prototools import tabulate, textbox
+from prototools.colorize import cyan, green, red, yellow
 
 from . import RANGOS, INDEX
 from .models import Usuario, Numero
@@ -123,7 +123,7 @@ class Game:
             usuario.update(numero)
             usuario.show()
             if usuario.check():
-                print(f"{usuario.nombre} gana!")
+                textbox(green(f"{usuario.nombre} gana!"), bcolor="green")
                 self.winner = usuario
                 self.stop = True
 
