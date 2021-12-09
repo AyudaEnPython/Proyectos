@@ -19,7 +19,23 @@ class App:
         self._hora = hora
         self._costo = costo
         self._total: int = 0
-        self._configurar()
+        #self._configurar()
+
+    @property
+    def lugar(self) -> str:
+        return self._lugar
+
+    @lugar.setter
+    def lugar(self, lugar: str) -> None:
+        self._lugar = lugar
+
+    @property
+    def info(self) -> str:
+        return f"{self._fecha} {self._hora} S/.{self._costo}"
+
+    @info.setter
+    def info(self, info: str) -> None:
+        self._info = info
 
     def comprar(self) -> None:
         self.game.add_user(agregar_usuario(METODOS, self._costo))
@@ -38,12 +54,12 @@ class App:
     def _configurar(
         self, lugar: str, fecha: str, hora: str, costo: str
     ) -> None:
-        self._lugar = lugar
+        self.lugar = lugar
         self._fecha = fecha
         self._hora = hora
         self._costo = costo
         self.info = (
-            f"{f'{self._fecha}':^26}"
+            f"{f'{self.lugar}':^26}"
             f" {f'{self._hora}':^26} {f'S/.{self._costo}':^26}"
         )
 
