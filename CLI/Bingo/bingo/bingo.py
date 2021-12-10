@@ -131,7 +131,7 @@ class Game:
         while not self.stop:
             self.play()
             _ = input("Presione ENTER para mostrar el siguiente número...")
-        print(f"El ganador es {self.winner.nombre}")
+        textbox(green(f"El ganador es {self.winner.nombre}"), bcolor="green")
         self.reset()
 
     def reset(self) -> None:
