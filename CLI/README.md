@@ -1,3 +1,4 @@
 # Proyectos CLI (Command-Line Inteface)
 
-TODO
+- Bingo
+- Jukebox
