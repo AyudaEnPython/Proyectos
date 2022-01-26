@@ -1,4 +1,4 @@
 # Proyectos CLI (Command-Line Inteface)
 
-- Bingo
-- Jukebox
+- [Bingo](https://github.com/AyudaEnPython/Proyectos/tree/main/CLI/Bingo)
+- [Jukebox](https://github.com/AyudaEnPython/Proyectos/tree/main/CLI/Jukebox)
