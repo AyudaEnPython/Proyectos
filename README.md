@@ -16,4 +16,4 @@ Conforme se vayan agregando más soluciones, la estructura del repositorio irá 
 
 ## Guía de Contribuciones
 
-TODO
+Lee nuestra [guía](CONTRIBUTING.md) antes de empezar a contribuir.
