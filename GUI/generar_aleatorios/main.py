@@ -28,11 +28,11 @@ class Generador:
     
     def widgets(self):
         self.lbl_min = Label(self.root, text="Minimo")
-        self.minimo = Spinbox(self.root, from_=0, to=100)
         self.lbl_max = Label(self.root, text="Maximo")
-        self.maximo = Spinbox(self.root, from_=0, to=100)
         self.lbl_res = Label(self.root, text="Número generado")
         self.ent_res = Entry(self.root)
+        self.minimo = Spinbox(self.root, from_=0, to=100)
+        self.maximo = Spinbox(self.root, from_=0, to=100)
         self.clear = Button(self.root, text="Limpiar", command=self._clear)
         self.generar = Button(self.root, text="Generar", command=self._f)
     
@@ -41,17 +41,16 @@ class Generador:
         self._clear_spinbox()
 
     def _clear_spinbox(self):
-        self.minimo.delete(0, "end")
-        self.minimo.insert(0, 0)
-        self.maximo.delete(0, "end")
-        self.maximo.insert(0, 0)
+        for w in (self.minimo, self.maximo):
+            w.delete(0, "end")
+            w.insert(0, 0)
 
     def _f(self):
         self.ent_res.delete(0, "end")
-        minimo = int(self.minimo.get())
-        maximo = int(self.maximo.get())
         try:
-            resultado = generar_aleatorio(minimo, maximo)
+            resultado = generar_aleatorio(
+                int(self.minimo.get()), int(self.maximo.get())
+            )
         except ValueError as e:
             resultado = e
         self.ent_res.insert(0, resultado)
