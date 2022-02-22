@@ -66,7 +66,7 @@ class Generador:
         self.generar.grid(row=3, column=1, padx=5, pady=5)
 
     def run(self):
-        self.title("Ayuda En Python")
+        self.root.title("Ayuda En Python")
         self.root.mainloop()
 
 
