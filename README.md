@@ -1,7 +1,10 @@
 # Proyectos
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+![GitHub](https://img.shields.io/github/license/AyudaEnPython/proyectos)
+![GitHub repo size](https://img.shields.io/github/repo-size/AyudaEnPython/proyectos)
+![GitHub languages](https://img.shields.io/github/languages/top/AyudaEnPython/proyectos)
+![Github last-commit](https://img.shields.io/github/last-commit/AyudaEnPython/proyectos)
+![maintenance](https://img.shields.io/maintenance/yes/2022)
 
      _____           _        _____        _____     _   _           
     |  _  |_ _ _ _ _| |___   |   __|___   |  _  |_ _| |_| |_ ___ ___ 
@@ -9,10 +12,22 @@
     |__|__|_  |___|___|__,|  |_____|_|_|  |__|  |_  |_| |_|_|___|_|_|
           |___|                                 |___|                
 
+Repositorio de proyectos de la comunidad [Ayuda en Python](https://www.facebook.com/groups/ayudaenpython/).
 
-Repositorio de proyectos realizados por la comunidad [Ayuda en Python](https://www.facebook.com/groups/ayudaenpython/).
+Conforme se vayan agregando más proyectos, la estructura del repositorio irá cambiando.
+> __*Nota*__: Algunos proyectos fueron movidos desde otro repositorio (revisar los enlaces).
 
-Conforme se vayan agregando más soluciones, la estructura del repositorio irá cambiando.
+## Repositorios
+
+- [Soluciones](https://github.com/AyudaEnPython/Soluciones): Repositorio de soluciones
+- [Revisiones](https://github.com/AyudaEnPython/Revisiones): Repositorio de revisiones de código
+- [Retos](https://github.com/AyudaEnPython/Retos): Repositorio de retos
+- [Proyectos](https://github.com/AyudaEnPython/Proyectos): Repositorio de Proyectos
+
+## Herramientas
+
+- [CodeSeeker](https://leugimkm.github.io/codeseeker/)
+- [Code2Img](https://leugimkm.github.io/code2img/)
 
 ## Guía de Contribuciones
 
