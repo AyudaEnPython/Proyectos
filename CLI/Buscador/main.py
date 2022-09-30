@@ -35,7 +35,7 @@ def help() -> None:
     """))
 
 
-def search(keyword: str) -> None: 
+def search(keyword: str) -> None:
     response = requests.get(URL.format(keyword, LANGUAGE, REPO))
     data = response.json()["items"]
 
