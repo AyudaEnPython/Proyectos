@@ -1,4 +1,4 @@
-import cv2 as cv # type: ignore
+import cv2 as cv  # type: ignore
 import numpy as np
 from numpy import ndarray
 
@@ -14,7 +14,7 @@ COLORS = {
     "magenta": (255, 0, 255),
     "cyan": (255, 255, 0),
     "white": (255, 255, 255),
-    "black": (0, 0, 0)
+    "black": (0, 0, 0),
 }
 
 
