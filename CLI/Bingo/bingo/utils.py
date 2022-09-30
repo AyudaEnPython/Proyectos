@@ -7,6 +7,7 @@ from typing import Tuple
 from prototools import int_input, menu_input, EMAIL_REGEX
 from prototools.colorize import cyan, red
 
+
 class DniException(Exception):
     """Excepción para DNI"""
     ...
@@ -68,7 +69,7 @@ def clear():
 
 
 def agregar_usuario(
-    metodos: Tuple[str, str, str] , costo: str,
+    metodos: Tuple[str, str, str], costo: str,
 ) -> Tuple[str, str, str, int, str]:
     nombre = input(cyan("Ingrese su nombre y apellido: "))
     dni = validar_dni(cyan("Ingrese su DNI: "))

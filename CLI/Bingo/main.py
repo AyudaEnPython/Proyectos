@@ -1,7 +1,6 @@
 """AyudaEnPython: https://www.facebook.com/groups/ayudapython
 """
 # pip install prototools
-from typing import Tuple
 from prototools import Menu
 from prototools.colorize import magenta, cyan, yellow
 
@@ -19,7 +18,7 @@ class App:
         self._hora = hora
         self._costo = costo
         self._total: int = 0
-        #self._configurar()
+        # self._configurar()
 
     @property
     def lugar(self) -> str:
@@ -86,7 +85,7 @@ def main():
     )
     menu.add_options(
         ("Comprar cartones", app.comprar),
-        ("Visualizar compras", app.visualizar), # TODO
+        ("Visualizar compras", app.visualizar),  # TODO
         ("Configurar", app.informacion, menu),
         ("Jugar BINGO", app.run),
     )

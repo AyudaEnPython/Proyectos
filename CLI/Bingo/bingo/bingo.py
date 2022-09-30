@@ -14,7 +14,7 @@ from .utils import clear
 
 class Carton:
     _id: int = 0
-    
+
     def __init__(self) -> None:
         self.posiciones = {}
         self.bingo = {"row": [0]*5, "col": [0]*5, "diagonal": [0]*2}
@@ -33,7 +33,7 @@ class Carton:
                 n = Numero(sample_.pop())
                 carton[i][j] = n
                 self.posiciones[n.valor] = (i, j)
-        carton[2][2] = yellow(" "+ chr(9788)+" ")
+        carton[2][2] = yellow(" " + chr(9788) + " ")
         self.carton = list(map(list, zip(*carton)))
 
     def update(self, numero: int) -> None:
@@ -89,7 +89,7 @@ class Carton:
 class Game:
     usuarios: List[Usuario] = field(default_factory=list)
     numeros: List[int] = field(default_factory=list)
-    
+
     def __post_init__(self) -> None:
         self.stop = False
         self._generar_numeros()

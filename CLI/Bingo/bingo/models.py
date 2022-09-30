@@ -24,7 +24,7 @@ class Usuario:
     def update(self, numero: int) -> None:
         for carton in self.cartones:
             carton.update(numero)
-    
+
     def check(self) -> bool:
         for carton in self.cartones:
             if carton.check():
@@ -58,7 +58,7 @@ class Numero:
 
     def marcar(self) -> None:
         self._marcado = True
-    
+
     def desmarcar(self) -> None:
         self._marcado = False
 
