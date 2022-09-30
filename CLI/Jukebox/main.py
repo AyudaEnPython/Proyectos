@@ -3,8 +3,7 @@
 from time import sleep
 # pip install prototools
 from prototools import Menu, ProtoDB, textbox, progressbar
-from prototools.colorize import *
-
+from prototools.colorize import green, yellow, magenta, cyan, red
 
 data = ProtoDB("songs")
 ALBUM = data.get_data()
