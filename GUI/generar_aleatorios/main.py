@@ -4,7 +4,7 @@ from random import randint
 from tkinter import Entry, Tk, Button, Label, Spinbox
 
 
-def generar_aleatorio(minimo: int =0, maximo: int = 100) -> int:
+def generar_aleatorio(minimo: int = 0, maximo: int = 100) -> int:
     """Genera un número aleatorio entre dos valores dados
 
     :param minimo: valor mínimo
@@ -25,7 +25,7 @@ class Generador:
         self.root = Tk()
         self.widgets()
         self.layout()
-    
+
     def widgets(self):
         self.lbl_min = Label(self.root, text="Minimo")
         self.lbl_max = Label(self.root, text="Maximo")
@@ -35,7 +35,7 @@ class Generador:
         self.maximo = Spinbox(self.root, from_=0, to=100)
         self.clear = Button(self.root, text="Limpiar", command=self._clear)
         self.generar = Button(self.root, text="Generar", command=self._f)
-    
+
     def _clear(self):
         self.ent_res.delete(0, "end")
         self._clear_spinbox()
