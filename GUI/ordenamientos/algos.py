@@ -28,7 +28,7 @@ def bubble_sort(arr, f, timer: float):
     # return arr
 
 
-# Take from:
+# Taken from:
 # https://github.com/AyudaEnPython/Soluciones/blob/main/soluciones/algo_insertion_sort.py
 def insertion_sort(arr, f, timer: float):
     for i in range(1, len(arr)):
