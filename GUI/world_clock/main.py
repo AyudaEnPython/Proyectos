@@ -24,6 +24,8 @@ def update_times():
 
 
 def setup_gui(master):
+    master.title("World Clock")
+    master["bg"] = "black"
     Label(master, text=strftime("%A %d %B %Y"), bg="black", fg="yellow",
         font=("Courier", 24)).grid(row=0, columnspan=2, padx=5)
     for i, (country, _) in enumerate(TIMEZONES, 1):
@@ -36,8 +38,6 @@ def setup_gui(master):
 
 
 root = Tk()
-root.title("World Clock")
-root["bg"] = "black"
 setup_gui(root)
 update_times()
 root.mainloop()
