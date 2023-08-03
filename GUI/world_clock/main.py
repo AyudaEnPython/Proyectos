@@ -24,7 +24,7 @@ def update_times():
 
 
 def setup_gui(master):
-    master.title("World Clock")
+    master.title("Ayuda en Python - World Clock")
     master["bg"] = "black"
     Label(master, text=strftime("%A %d %B %Y"), bg="black", fg="yellow",
         font=("Courier", 24)).grid(row=0, columnspan=2, padx=5)
