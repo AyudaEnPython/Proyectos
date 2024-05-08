@@ -1,3 +1,5 @@
+"""AyudaEnPython: https://www.facebook.com/groups/ayudapython
+"""
 from gol import GameOfLife, create_pattern, create_random_cells
 from patterns import *
 from tkinter import Tk, Canvas

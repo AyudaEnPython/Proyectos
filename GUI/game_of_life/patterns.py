@@ -1,3 +1,5 @@
+"""AyudaEnPython: https://www.facebook.com/groups/ayudapython
+"""
 GLIDER = [
     [0, 1, 0],
     [0, 0, 1],
