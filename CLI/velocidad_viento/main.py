@@ -11,7 +11,7 @@ PARAMS = "$where=fechaobservacion between '{}' and '{}'"
 
 def main():
     text_align("Start")
-    for y in range(2008, 2011):
+    for y in range(2008, 2020):
         with pd.ExcelWriter(f"{y}.xlsx") as w:
             for m in progressbar(range(1, 13)):
                 data = get_data(URL, set_params(PARAMS, y, m))
