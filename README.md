@@ -4,18 +4,19 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/AyudaEnPython/proyectos)
 ![GitHub languages](https://img.shields.io/github/languages/top/AyudaEnPython/proyectos)
 ![Github last-commit](https://img.shields.io/github/last-commit/AyudaEnPython/proyectos)
-![maintenance](https://img.shields.io/maintenance/yes/2023)
+![maintenance](https://img.shields.io/maintenance/yes/2024)
 
-     _____           _        _____        _____     _   _           
-    |  _  |_ _ _ _ _| |___   |   __|___   |  _  |_ _| |_| |_ ___ ___ 
+     _____           _        _____        _____     _   _
+    |  _  |_ _ _ _ _| |___   |   __|___   |  _  |_ _| |_| |_ ___ ___
     |     | | | | | . | .'|  |   __|   |  |   __| | |  _|   | . |   |
     |__|__|_  |___|___|__,|  |_____|_|_|  |__|  |_  |_| |_|_|___|_|_|
-          |___|                                 |___|                
+          |___|                                 |___|
 
 Repositorio de proyectos de la comunidad [Ayuda en Python](https://www.facebook.com/groups/ayudaenpython/).
 
 Conforme se vayan agregando más proyectos, la estructura del repositorio irá cambiando.
-> __*Nota*__: Algunos proyectos fueron movidos desde otro repositorio (revisar los enlaces).
+
+> **_Nota_**: Algunos proyectos fueron movidos desde otro repositorio (revisar los enlaces).
 
 ## Repositorios
 
