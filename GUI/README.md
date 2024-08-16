@@ -10,3 +10,4 @@
 - [Triángulo de Sierpinski](https://github.com/AyudaEnPython/Proyectos/tree/main/GUI/sierpinski)
 - [World Clock](https://github.com/AyudaEnPython/Proyectos/tree/main/GUI/world_clock)
 - [Árbol de Navidad](https://github.com/AyudaEnPython/Proyectos/tree/main/GUI/xmas_tree)
+- [Word Clock](https://github.com/AyudaEnPython/Proyectos/blob/main/GUI/world_clock)
