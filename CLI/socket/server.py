@@ -33,6 +33,7 @@ def handle_client(client_socket):
 def run_server(host, port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         try:
+            server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             server.bind((host, port))
             server.listen()
             logging.info(f"Server started on {host}:{port}")
