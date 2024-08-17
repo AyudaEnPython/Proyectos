@@ -2,18 +2,23 @@
 """
 import logging
 import socket
+import threading
 from datetime import datetime
 
 HOST, PORT = "127.0.0.1", 65432
 DATE, TIME = "%Y-%m-%d", "%H:%M:%S"
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 
 def get_datetime(format_):
     return datetime.now().strftime(format_)
 
 
-def handle_client(client_socket):
+def handle_client(client_socket, client_address):
+    logging.info("Handling connection from %s:%s", *client_address)
     with client_socket:
         try:
             while True:
@@ -27,7 +32,12 @@ def handle_client(client_socket):
                 if client_option == '2':
                     break
         except Exception as e:
-            logging.error("An error ocurred while handling client: %s", e)
+            logging.error(
+                "An error ocurred while handling client %s:%s - %s",
+                 *client_address, e,
+            )
+        finally:
+            logging.info("Connection closed from %s:%s", *client_address)
 
 
 def run_server(host, port):
@@ -38,9 +48,15 @@ def run_server(host, port):
             server.listen()
             logging.info(f"Server started on {host}:{port}")
             while True:
-                client_socket, addr = server.accept()
-                logging.info("Connection from %s:%s",*addr)
-                handle_client(client_socket)
+                client_socket, client_address = server.accept()
+                logging.info(
+                    "Accepted connection from %s:%s", *client_address,
+                )
+                client_thread = threading.Thread(
+                    target=handle_client,
+                    args=(client_socket, client_address)
+                )
+                client_thread.start()
         except Exception as e:
             logging.critical("Server error: %s", e)
         finally:
