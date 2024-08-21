@@ -7,3 +7,4 @@
 - [Top Beers](https://github.com/AyudaEnPython/Proyectos/tree/main/CLI/top_beers)
 - [Velocidad Viento](https://github.com/AyudaEnPython/Proyectos/tree/main/CLI/velocidad_viento)
 - [Socket](https://github.com/AyudaEnPython/Proyectos/tree/main/CLI/socket)
+- [Wordle](https://github.com/AyudaEnPython/Proyectos/tree/main/CLI/wordle)
