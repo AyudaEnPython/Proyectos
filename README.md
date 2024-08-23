@@ -16,7 +16,8 @@ Repositorio de proyectos de la comunidad [Ayuda en Python](https://www.facebook.
 
 Conforme se vayan agregando más proyectos, la estructura del repositorio irá cambiando.
 
-> **_Nota_**: Algunos proyectos fueron movidos desde otro repositorio (revisar los enlaces).
+> [!NOTE]
+> Algunos proyectos fueron movidos desde otro repositorio (revisar los enlaces).
 
 ## Repositorios
 
