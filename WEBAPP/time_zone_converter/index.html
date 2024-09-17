@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AyudaEnPython | UTC Converter</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/cirrus-ui/dist/cirrus.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pyscript.net/releases/2024.1.1/core.css"
+    />
+    <script
+      type="module"
+      src="https://pyscript.net/releases/2024.1.1/core.js"
+    ></script>
+  </head>
+  <body>
+    <py-config>
+    [[fetch]]
+    files = ['main.py']
+    </py-config>
+    <py-script>
+      from pyscript import when, display, document
+      from main import utc_to_local
+
+      @when("click", "#clear_btn")
+      def clear_all(event):
+          document.getElementById("utc").value = "00:00"
+          document.getElementById("result").innerHTML = "</br>"
+
+      @when("click", "#convert_btn")
+      def click_handler(event):
+          utc = document.getElementById("utc").value
+          try:
+              result = utc_to_local(utc)
+              document.getElementById("result").innerHTML = f"{result}"
+          except Exception as e:
+              document.getElementById("result").innerHTML = f"Error: {e}"
+    </py-script>
+    <div class="hero fullscreen bg-yellow-200">
+      <div class="hero-body">
+        <div class="mx-auto">
+          <h1 class="title uppercase text-indigo-600">UTC Time Zone Converter</h1>
+          <h3 class="subtitle text-gray-600">AyudaEnPython</h3>
+          <div class="form-group">
+            <label class="form-group-label">UTC</label>
+            <input type="time" id="utc" class="form-group-input" value="00:00" placeholder="e.g. 00:00"/>
+          </div>
+          <div class="u-center u-gap-2">
+            <button class="btn-light" id="convert_btn">Convert</button>
+            <button class="btn-light" id="clear_btn">Clear All</button>
+          </div>
+          <div class="u-round-xs u-shadow-xl p-3 bg-indigo-200">
+            <div class="u-flex u-justify-center u-gap-2">
+              <div class="text-indigo-600 font-semibold tracking-looser" id="result"></br></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
