@@ -41,41 +41,46 @@ class Menu(Frame):
 
     def __init__(self):
         super().__init__()
+        self["bg"] = "gray20"
         self.setup_ui()
 
     def setup_ui(self):
         Label(
-            self, text="Sorting Algorithm",
+            self, text="Sorting Algorithm", bg="gray20", fg="white",
         ).grid(row=0, column=0)
         self.algo = ttk.Combobox(self, values=["Bubble", "Insertion"])
         self.speed = Scale(
             self, from_=0.1, to=1.0, length=100, digits=2,
             resolution=0.1, orient="horizontal", label="Speed",
+            bg="gray20", fg="white", highlightthickness=0, troughcolor="gray40",
         )
         self.min_value = Scale(
             self, from_=1, to=20, orient="horizontal", label="Minimun Value",
-            resolution=1,
+            resolution=1, bg="gray20", fg="white", highlightthickness=0,
+            troughcolor="gray40",
         )
         self.max_value = Scale(
             self, from_=1, to=20, orient="horizontal", label="Maximun Value",
-            resolution=1,
+            resolution=1, bg="gray20", fg="white", highlightthickness=0,
+            troughcolor="gray40",
         )
         self.size = Scale(
             self, from_=8, to=20, resolution=1, orient="horizontal",
-            label="Size",
+            label="Size", bg="gray20", fg="white", highlightthickness=0,
+            troughcolor="gray40",
         )
         self.max_value.set(20)
         self.size.set(12)
         self.algo.current(0)
-        self.algo.grid(row=1, column=0)
-        self.size.grid(row=0, column=2)
+        self.algo.grid(row=1, column=0, padx=5, pady=5)
+        self.size.grid(row=0, column=2, padx=5, pady=5)
         self.min_value.grid(row=0, column=1)
-        self.max_value.grid(row=1, column=1)
-        self.speed.grid(row=1, column=2)
+        self.max_value.grid(row=1, column=1, padx=5, pady=5)
+        self.speed.grid(row=1, column=2, padx=5, pady=5)
         self.btn_generate = Button(self, text="Generate")
         self.btn_start = Button(self, text="Start")
-        self.btn_generate.grid(row=0, column=3, sticky="we")
-        self.btn_start.grid(row=1, column=3, sticky="we")
+        self.btn_generate.grid(row=0, column=3, sticky="we", padx=5, pady=5)
+        self.btn_start.grid(row=1, column=3, sticky="we", padx=5, pady=5)
 
 
 class App(Tk):
@@ -84,8 +89,9 @@ class App(Tk):
         super().__init__()
         self.menu = Menu()
         self.canvas = CustomCanvas(self)
-        self.menu.pack()
-        self.canvas.pack()
+        self["bg"] = "gray20"
+        self.menu.pack(padx=5, pady=5)
+        self.canvas.pack(padx=5, pady=5)
         self.menu.btn_generate["command"] = self.setup_data
         self.menu.btn_start["command"] = self.start_algo
 
