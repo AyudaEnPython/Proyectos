@@ -48,6 +48,13 @@ class Menu(Frame):
         Label(
             self, text="Sorting Algorithm", bg="gray20", fg="white",
         ).grid(row=0, column=0)
+        style = ttk.Style()
+        style.theme_use("default")
+        self.option_add("*TCombobox*Listbox*Background", "gray40")
+        self.option_add("*TCombobox*Listbox*Foreground", "gray20")
+        self.option_add("*TCombobox*Listbox*selectBackground", "gray20")
+        self.option_add("*TCombobox*Listbox*selectForeground", "white")
+        style.configure("TCombobox", fieldbackground="gray40", background="gray20", foreground="white")
         self.algo = ttk.Combobox(self, values=["Bubble", "Insertion"])
         self.speed = Scale(
             self, from_=0.1, to=1.0, length=100, digits=2,
