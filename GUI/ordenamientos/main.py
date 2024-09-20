@@ -17,6 +17,7 @@ class CustomCanvas(Canvas):
     def __init__(self, master):
         super().__init__(master)
         self["bg"] = "grey7"
+        self["highlightthickness"] = 0
         self.h = 250
         self.w = 600
 
@@ -54,7 +55,10 @@ class Menu(Frame):
         self.option_add("*TCombobox*Listbox*Foreground", "gray20")
         self.option_add("*TCombobox*Listbox*selectBackground", "gray20")
         self.option_add("*TCombobox*Listbox*selectForeground", "white")
-        style.configure("TCombobox", fieldbackground="gray40", background="gray20", foreground="white")
+        style.configure(
+            "TCombobox",
+            fieldbackground="gray40", background="gray20", foreground="white"
+        )
         self.algo = ttk.Combobox(self, values=["Bubble", "Insertion"])
         self.speed = Scale(
             self, from_=0.1, to=1.0, length=100, digits=2,
@@ -84,8 +88,12 @@ class Menu(Frame):
         self.min_value.grid(row=0, column=1)
         self.max_value.grid(row=1, column=1, padx=5, pady=5)
         self.speed.grid(row=1, column=2, padx=5, pady=5)
-        self.btn_generate = Button(self, text="Generate")
-        self.btn_start = Button(self, text="Start")
+        self.btn_generate = Button(
+            self, text="Generate", background="tomato", foreground="white",
+        )
+        self.btn_start = Button(
+            self, text="Start", background="forest green", foreground="white",
+        )
         self.btn_generate.grid(row=0, column=3, sticky="we", padx=5, pady=5)
         self.btn_start.grid(row=1, column=3, sticky="we", padx=5, pady=5)
 
@@ -94,11 +102,16 @@ class App(Tk):
 
     def __init__(self):
         super().__init__()
+        self.title("Ordenamientos")
         self.menu = Menu()
         self.canvas = CustomCanvas(self)
         self["bg"] = "gray20"
         self.menu.pack(padx=5, pady=5)
         self.canvas.pack(padx=5, pady=5)
+        Label(
+            self, text="AyudaEnPython",
+            background="gray20", foreground="gray30",
+        ).pack()
         self.menu.btn_generate["command"] = self.setup_data
         self.menu.btn_start["command"] = self.start_algo
 
